@@ -102,4 +102,8 @@ STEDI has three JSON data sources to use from the Step Trainer.
 ## 5. Landing Zone
 
 **Customer**
-![](./img/customer_landing.png)
+![customer](./img/customer_landing.png)
+**Accelerometer**
+![accelerometer](./img/accelerometer_landing.png)
+**Step Trainer**
+![step trainer](./img/step_trainer_landing.png)
