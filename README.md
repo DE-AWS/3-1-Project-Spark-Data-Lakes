@@ -3,6 +3,7 @@
 1. [Project Details](#schema1)
 2. [Project Summary](#schema2)
 3. [Project Environment](#schema3)
+4. [Datasets](#schema4)
 
 <hr>
 <a name='schema1'></a>
@@ -59,3 +60,37 @@ curates the data for the machine learning model using:
 You'll also need a github repository to store your SQL scripts and Python code in. You'll submit the code in this 
 github repo for the project submission.
 
+<hr>
+<a name='schema4'></a>
+
+## 4. Datasets
+
+STEDI has three JSON data sources to use from the Step Trainer. 
+
+- customer
+  - This is the data from fulfillment and the STEDI website.
+  - contains the following fields:
+      - serialnumber
+      - sharewithpublicasofdate
+      - birthday
+      - registrationdate
+      - sharewithresearchasofdate
+      - customername
+      - email
+      - lastupdatedate
+      - phone
+      - sharewithfriendsasofdate
+- step_trainer
+  - This is the data from the motion sensor.
+  - contains the following fields:
+    - sensorReadingTime
+    - serialNumber
+    - distanceFromObject
+- accelerometer
+  - This is the data from the mobile app.
+  - contains the following fields:
+    - timeStamp
+    - user
+    - x
+    - y
+    - z
