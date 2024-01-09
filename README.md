@@ -94,3 +94,8 @@ STEDI has three JSON data sources to use from the Step Trainer.
     - x
     - y
     - z
+
+<hr>
+<a name='schema5'></a>
+
+## 5. Implentation
