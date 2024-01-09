@@ -4,6 +4,7 @@
 2. [Project Summary](#schema2)
 3. [Project Environment](#schema3)
 4. [Datasets](#schema4)
+5. [Landing Zone](#schema5)
 
 <hr>
 <a name='schema1'></a>
@@ -98,4 +99,7 @@ STEDI has three JSON data sources to use from the Step Trainer.
 <hr>
 <a name='schema5'></a>
 
-## 5. Implentation
+## 5. Landing Zone
+
+**Customer**
+![](./img/customer_landing.png)
