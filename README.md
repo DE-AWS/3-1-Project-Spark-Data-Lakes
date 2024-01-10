@@ -104,8 +104,26 @@ STEDI has three JSON data sources to use from the Step Trainer.
 ## **Customer**
 ![customer](./img/customer_landing.png)
 
+- Count of customer_landing
+
+```
+select count(distinct email) from customer_landing
+```
+![customer](./img/customer_distinct.png)
+
+- The customer_landing data contains rows with a blank `sharewithresearchasofdate`
+```
+select count(*) from customer_landing 
+where sharewithresearchasofdate is null
+```
+
+![customer](./img/customer_research_null.png)
+
 ## **Accelerometer**
 ![accelerometer](./img/accelerometer_landing.png)
 
+![accelerometer](./img/accelerometer_count.png)
 ## **Step Trainer**
 ![step trainer](./img/step_trainer_landing.png)
+
+![step trainer](./img/step_trainer_count.png)
