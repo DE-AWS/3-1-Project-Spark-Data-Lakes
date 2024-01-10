@@ -130,3 +130,7 @@ where sharewithresearchasofdate is null
 - Count of step trainer
 
 ![step trainer](./img/step_trainer_count.png)
+
+## **JOIN**
+
+![join](./img/join.png)
