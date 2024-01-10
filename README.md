@@ -121,9 +121,12 @@ where sharewithresearchasofdate is null
 
 ## **Accelerometer**
 ![accelerometer](./img/accelerometer_landing.png)
+- Count of accelerometer
 
 ![accelerometer](./img/accelerometer_count.png)
+
 ## **Step Trainer**
 ![step trainer](./img/step_trainer_landing.png)
+- Count of step trainer
 
 ![step trainer](./img/step_trainer_count.png)
