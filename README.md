@@ -5,6 +5,7 @@
 3. [Project Environment](#schema3)
 4. [Datasets](#schema4)
 5. [Landing Zone](#schema5)
+6. [Trusted Zone](#schema6)
 
 <hr>
 <a name='schema1'></a>
@@ -134,3 +135,18 @@ where sharewithresearchasofdate is null
 ## **JOIN**
 
 ![join](./img/join.png)
+
+
+
+<hr>
+<a name='schema6'></a>
+
+## 6. Trusted Zone
+
+## **Customer Trusted**
+
+![](./img/customer_trusted.png)
+
+## **Accelerometer Trusted**
+
+![](./img/accelerometer_trusted.png)
