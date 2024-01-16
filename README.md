@@ -151,6 +151,7 @@ where sharewithresearchasofdate is null
 **GLue jobs Scripts**
 - [customer_landing_to_trusted.py](customer_landing_to_trusted2.py)
 - [accelerometer_landing_to_trusted.py](accelerometer_landing_to_trusted.py)
+- [step_trainer_landing_to_trusted.py](step_trainer_landing_to_trusted.py)
 
 ## **Customer Trusted**
 
@@ -160,8 +161,9 @@ where sharewithresearchasofdate is null
 
 ![](./img/accelerometer_trusted.png)
 
+## **Step Trainer Trusted**
 
-
+![](./img/step_trainer_trusted.png)
 
 <hr>
 <a name='schema7'></a>
@@ -172,6 +174,9 @@ where sharewithresearchasofdate is null
 
 - [customer_trusted_to_curated.py](customer_trusted_to_curated.py)
 
+![](./img/customer_curated.png)
+
 
 ## **ML Curated**
 - [machine_learning_curated.py](machine_learning_curated.py)
+![](./img/ML_curated.png)

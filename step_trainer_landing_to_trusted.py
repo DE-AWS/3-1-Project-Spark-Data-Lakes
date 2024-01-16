@@ -4,8 +4,15 @@ from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
-from awsglue.dynamicframe import DynamicFrame
-from pyspark.sql import functions as SqlFuncs
+from awsglue import DynamicFrame
+
+
+def sparkSqlQuery(glueContext, query, mapping, transformation_ctx) -> DynamicFrame:
+    for alias, frame in mapping.items():
+        frame.toDF().createOrReplaceTempView(alias)
+    result = spark.sql(query)
+    return DynamicFrame.fromDF(result, glueContext, transformation_ctx)
+
 
 args = getResolvedOptions(sys.argv, ["JOB_NAME"])
 sc = SparkContext()
@@ -38,43 +45,35 @@ StepTrainerLanding_node1705331629748 = glueContext.create_dynamic_frame.from_opt
     transformation_ctx="StepTrainerLanding_node1705331629748",
 )
 
-# Script generated for node Join customer
-Joincustomer_node1705333198164 = Join.apply(
-    frame1=CustomerCurated_node1705331601986,
-    frame2=StepTrainerLanding_node1705331629748,
-    keys1=["serialnumber"],
-    keys2=["serialnumber"],
-    transformation_ctx="Joincustomer_node1705333198164",
-)
-
-# Script generated for node Drop Fields
-DropFields_node1705331814221 = DropFields.apply(
-    frame=Joincustomer_node1705333198164,
-    paths=[
-        "email",
-        "phone",
-        "birthday",
-        "sharewithresearchasofdate",
-        "registrationdate",
-        "customername",
-        "lastupdatedate",
-        "`.serialnumber`",
-        "sharewithfriendsasofdate",
-        "sharewithpublicasofdate",
-    ],
-    transformation_ctx="DropFields_node1705331814221",
-)
-
-# Script generated for node Drop Duplicates
-DropDuplicates_node1705340831901 = DynamicFrame.fromDF(
-    DropFields_node1705331814221.toDF().dropDuplicates(),
+# Script generated for node join
+SqlQuery1116 = """
+select * from cc join stl on cc.serialnumber = stl.serialnumber
+"""
+join_node1705404516688 = sparkSqlQuery(
     glueContext,
-    "DropDuplicates_node1705340831901",
+    query=SqlQuery1116,
+    mapping={
+        "cc": CustomerCurated_node1705331601986,
+        "stl": StepTrainerLanding_node1705331629748,
+    },
+    transformation_ctx="join_node1705404516688",
+)
+
+# Script generated for node SQL Query
+SqlQuery1117 = """
+select distinct serialnumber,sensorreadingtime,distancefromobject 
+from myDataSource
+"""
+SQLQuery_node1705402532909 = sparkSqlQuery(
+    glueContext,
+    query=SqlQuery1117,
+    mapping={"myDataSource": join_node1705404516688},
+    transformation_ctx="SQLQuery_node1705402532909",
 )
 
 # Script generated for node Step Trainer Trusted
 StepTrainerTrusted_node1705332255141 = glueContext.write_dynamic_frame.from_options(
-    frame=DropDuplicates_node1705340831901,
+    frame=SQLQuery_node1705402532909,
     connection_type="s3",
     format="json",
     connection_options={
