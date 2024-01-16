@@ -6,6 +6,7 @@
 4. [Datasets](#schema4)
 5. [Landing Zone](#schema5)
 6. [Trusted Zone](#schema6)
+7. [Curated Zone](#schema7)
 
 <hr>
 <a name='schema1'></a>
@@ -102,7 +103,11 @@ STEDI has three JSON data sources to use from the Step Trainer.
 
 ## 5. Landing Zone
 
-## **Customer**
+## **GLue Table**
+- [customer_landing.sql](./DDL/customer_landing.sql)
+- [accelerometer_landing.sql](./DDL/accelerometer_landing.sql)
+
+### **Customer**
 ![customer](./img/customer_landing.png)
 
 - Count of customer_landing
@@ -120,19 +125,19 @@ where sharewithresearchasofdate is null
 
 ![customer](./img/customer_research_null.png)
 
-## **Accelerometer**
+### **Accelerometer**
 ![accelerometer](./img/accelerometer_landing.png)
 - Count of accelerometer
 
 ![accelerometer](./img/accelerometer_count.png)
 
-## **Step Trainer**
+### **Step Trainer**
 ![step trainer](./img/step_trainer_landing.png)
 - Count of step trainer
 
 ![step trainer](./img/step_trainer_count.png)
 
-## **JOIN**
+### **JOIN**
 
 ![join](./img/join.png)
 
@@ -143,6 +148,10 @@ where sharewithresearchasofdate is null
 
 ## 6. Trusted Zone
 
+**GLue jobs Scripts**
+- [customer_landing_to_trusted.py](customer_landing_to_trusted2.py)
+- [accelerometer_landing_to_trusted.py](accelerometer_landing_to_trusted.py)
+
 ## **Customer Trusted**
 
 ![](./img/customer_trusted.png)
@@ -150,3 +159,19 @@ where sharewithresearchasofdate is null
 ## **Accelerometer Trusted**
 
 ![](./img/accelerometer_trusted.png)
+
+
+
+
+<hr>
+<a name='schema7'></a>
+
+## 7. Curated Zone
+
+## **Customer Curated**
+
+- [customer_trusted_to_curated.py](customer_trusted_to_curated.py)
+
+
+## **ML Curated**
+- [machine_learning_curated.py](machine_learning_curated.py)
